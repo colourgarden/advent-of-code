@@ -14,11 +14,14 @@ The content of `input.txt` is my personal puzzle input from Advent of Code.
 
 Results are available on the [Advent of Code](https://adventofcode.com/2022/leaderboard/self) website.
 
+**Rank** is your position on that leaderboard: 1 means you were the first person to get that star, 2 means the second, 100 means the 100th, etc. **Score** is the number of points you got for that rank: 100 for 1st, 99 for 2nd, ..., 1 for 100th, and 0 otherwise.
+
 ```
-      --------Part 1--------   --------Part 2--------
-Day       Time   Rank  Score       Time   Rank  Score
-  2   12:42:27  93474      0   12:58:58  87800      0
-  1   10:59:45  76768      0   11:02:47  72581      0
+      --------Part 1---------   --------Part 2---------
+Day       Time    Rank  Score       Time    Rank  Score
+  3       >24h  141444      0       >24h  134823      0
+  2   12:42:27   93474      0   12:58:58   87800      0
+  1   10:59:45   76768      0   11:02:47   72581      0
 ```
 
 Merry Christmas! 🎄🎁
