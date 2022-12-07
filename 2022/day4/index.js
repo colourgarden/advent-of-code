@@ -3,43 +3,36 @@ const fs = require('fs');
 
 const data = fs.readFileSync(`./input.txt`, 'utf-8');
 
-const pairs = data.split('\n');
+// Convert each line into an array containing the four relevant numbers.
+const pairs = data.split('\n').map(pair => Array.from(pair.split(',').flatMap(range => range.split('-').map(Number))));
 
-const overlappingElves = pairs.filter(pair => {
-  const [elf1, elf2] = pair.split(',');
-  const [lower1, higher1] = elf1.split('-').map(number => parseInt(number));
-  const [lower2, higher2] = elf2.split('-').map(number => parseInt(number));
-
-  // Is two contained within one?
-  if (lower2 >= lower1 && higher2 <= higher1) {
-    return true;
-  }
-
-  // Is one contained within two?
-  if (lower1 >= lower2 && higher1 <= higher2) {
-    return true;
-  }
-});
+// Part one calculation
+// Is two contained within one? Or is one contained within two?
+const overlappingElves = pairs.filter(([lower1, higher1, lower2, higher2]) => {
+  return (
+    lower2 >= lower1 && higher2 <= higher1
+    || lower1 >= lower2 && higher1 <= higher2
+  )
+}).length;
 
 // Print answer to part one.
-console.log(overlappingElves.length);
+console.log(overlappingElves);
+
+// Possible one-liner
+// console.log(pairs.filter(([lower1, higher1, lower2, higher2]) => lower2 >= lower1 && higher2 <= higher1 || lower1 >= lower2 && higher1 <= higher2).length);
 
 
-const notOverlappingElves = pairs.filter(pair => {
-  const [elf1, elf2] = pair.split(',');
-  const [lower1, higher1] = elf1.split('-').map(number => parseInt(number));
-  const [lower2, higher2] = elf2.split('-').map(number => parseInt(number));
-
-  // Does one overlap the boundaries of two?
-  if (lower1 < lower2 && higher1 < lower2) {
-    return true;
-  }
-
-  // Does two overlap the boundaries of one?
-  if (lower2 < lower1 && higher2 < lower1) {
-    return true;
-  }
-});
+// Part two calculation
+// Does one overlap the boundaries of two? Or does two overlap the boundaries of one?
+const notOverlappingElves = pairs.filter(([lower1, higher1, lower2, higher2]) => {
+  return (
+    lower1 < lower2 && higher1 < lower2
+    || lower2 < lower1 && higher2 < lower1
+  )
+}).length;
 
 // Print answer to part two.
-console.log(pairs.length - notOverlappingElves.length);
+console.log(pairs.length - notOverlappingElves);
+
+// Possible one-liner
+// console.log(pairs.filter(([lower1, higher1, lower2, higher2]) => lower1 < lower2 && higher1 < lower2 || lower2 < lower1 && higher2 < lower1)).length;
