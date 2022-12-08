@@ -1,4 +1,3 @@
-const path = require('path');
 const fs = require('fs');
 
 // Get input data of groups of numbers separated by blank lines.
@@ -28,4 +27,4 @@ const sorted = [...elves].sort((a, b) => b - a);
 const topThree = sorted.slice(0, 3).reduce((total, calories) => total + calories);
 
 // Print answer to part two.
-console.log(topThree);
+console.log(`The three elves carrying the most calories are carrying a combined ${topThree} calories.`);
