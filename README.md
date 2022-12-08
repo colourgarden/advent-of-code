@@ -19,6 +19,7 @@ Results are available on the [Advent of Code](https://adventofcode.com/2022/lead
 ```
       --------Part 1---------   --------Part 2---------
 Day       Time    Rank  Score       Time    Rank  Score
+  8   13:11:36   53111      0   13:56:31   47114      0
   7   11:49:21   42843      0   11:58:59   40911      0
   4       >24h  125365      0       >24h  123383      0
   3       >24h  141444      0       >24h  134823      0
